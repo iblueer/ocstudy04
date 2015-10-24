@@ -28,7 +28,10 @@ int main(int argc, const char * argv[]) {
         NSCalendar *cal = [NSCalendar currentCalendar];
         NSString *dayInMoon = [cal calendarIdentifier];
         NSLog(@"The day in the moon is %@", dayInMoon /*[cal calendarIdentifier]*/);
-        long unsigned getDayOfMonth = [cal ordinalityOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:now];//This message will return us the order that day is in its month.
+        long unsigned getDayOfMonth = [cal ordinalityOfUnit:NSCalendarUnitDay
+                                                     inUnit:NSCalendarUnitMonth
+                                                    forDate:now];
+        //This message will return us the order that day is in its month.
         NSLog(@"%lu", getDayOfMonth);
     }
     return 0;
