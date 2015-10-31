@@ -10,10 +10,10 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        NSDate *now = [NSDate date];
+        NSDate *now = [[NSDate alloc] init];
         NSLog(@"This is NSDate object lives at %p", now);//This is a pointer printer
         NSLog(@"The date is %@", now);//This prints the date info
-        double seconds = [now timeIntervalSince1970];
+        double seconds = [[NSDate date] timeIntervalSince1970];//testing nesting message sends
         NSLog(@"the seconds since 1970 is %f", seconds);
         seconds = [now timeIntervalSinceNow];
         NSLog(@"the seconds since Now is %f", seconds);
@@ -30,8 +30,7 @@ int main(int argc, const char * argv[]) {
         NSLog(@"The day in the moon is %@", dayInMoon /*[cal calendarIdentifier]*/);
         long unsigned getDayOfMonth = [cal ordinalityOfUnit:NSCalendarUnitDay
                                                      inUnit:NSCalendarUnitMonth
-                                                    forDate:now];
-        //This message will return us the order that day is in its month.
+                                                    forDate:now];//This message will return us the order that day is in its month.
         NSLog(@"%lu", getDayOfMonth);
     }
     return 0;
